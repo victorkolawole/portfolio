@@ -1027,7 +1027,7 @@
       <div>
         <p class="signature">Victor O. Kolawole</p>
         <div class="sigline">PREPARED BY V. KOLAWOLE, ACCA (PART QUALIFIED) &nbsp;·&nbsp; LAST UPDATED JULY 2026</div>
-        <div class="pageviews-line"><span class="label">Views</span> <span id="pageviews">—</span></div>
+        <div class="pageviews-line"><span class="label">Portfolio-Views</span> <span id="pageviews">—</span></div>
       </div>
     </div>
   </div>
@@ -1066,7 +1066,7 @@
     .then(r => r.json())
     .then(data => {
       const el = document.getElementById('pageviews');
-      if (el) el.textContent = data.count_unique + ' visits';
+      if (el) el.textContent = data.count_unique + '';
     })
     .catch(() => {
       const el = document.getElementById('pageviews');
