@@ -10,6 +10,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
+<!-- GoatCounter: cookieless, GDPR-compliant pageview tracking (no consent banner required) -->
+<script data-goatcounter="https://vkolawole.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
 <style>
   :root{
     --ink:        #142033;
@@ -459,6 +463,14 @@
     color: var(--paper-soft);
     letter-spacing: 0.04em;
   }
+  .pageviews-line{
+    margin-top: 10px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--paper-soft);
+    letter-spacing: 0.04em;
+  }
+  .pageviews-line span.label{ color: var(--brass); }
 
   footer{
     text-align:center;
@@ -981,8 +993,6 @@
           </div>
         </div>
 
-        
-        </div>
       </div>
     </div>
   </div>
@@ -1017,6 +1027,7 @@
       <div>
         <p class="signature">Victor O. Kolawole</p>
         <div class="sigline">PREPARED BY V. KOLAWOLE, ACCA (PART QUALIFIED) &nbsp;·&nbsp; LAST UPDATED JULY 2026</div>
+        <div class="pageviews-line"><span class="label">Views</span> <span id="pageviews">—</span></div>
       </div>
     </div>
   </div>
@@ -1049,6 +1060,18 @@
   } else {
     revealEls.forEach(el => el.classList.add('in'));
   }
+
+  // GoatCounter public pageview count (read-only display, no personal data)
+  fetch('https://vkolawole.goatcounter.com/counter/TOTAL.json')
+    .then(r => r.json())
+    .then(data => {
+      const el = document.getElementById('pageviews');
+      if (el) el.textContent = data.count_unique + ' visits';
+    })
+    .catch(() => {
+      const el = document.getElementById('pageviews');
+      if (el) el.textContent = '—';
+    });
 </script>
 
 </body>
